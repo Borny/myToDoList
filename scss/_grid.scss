@@ -1,0 +1,102 @@
+/////////////////////
+// Container and row
+/////////////////////
+@mixin container-fixed {
+    margin: 0 auto;
+    // Cancels float
+    @extend %clearfix !optional;
+}
+
+//container
+.container {
+    @include container-fixed;
+    @media (min-width: $screen-sm) {
+        width: $screen-sm;
+    }
+    @media (min-width: $screen-md) {
+        width: $screen-md;
+    }
+    @media (min-width: $screen-lg) {
+        width: $screen-lg;
+    }
+}
+
+//row
+.row {
+    // Cancels float
+    @extend %clearfix;
+}
+
+/////////////////////
+//Responsive columns
+/////////////////////
+
+//Sets common properties for all column elements
+@mixin float-grid-columns($class, $i: 1, $list : ".col-#{$class}-#{$i}") {
+    @for $i from (1 + 1) through $columns {
+        $list: "#{$list}, .col-#{$class}-#{$i}";
+    }
+    #{$list} {
+        position: relative;
+        // Prevents columns from collapsing when empty
+        min-height: 1px;
+        // Aligns the columns
+        float: left;
+    }
+}
+
+// Calculates the width of each columns
+@mixin calculate-column-width($index, $class) {
+    .col-#{$class}-#{$index} {
+        width: percentage(($index / $columns));
+    }
+}
+
+
+@mixin loop-column-width($columns, $class) {
+    @for $i from 1 through $columns {
+        @include calculate-column-width($i, $class);
+    }
+}
+
+// Creates the classes
+@mixin make-grid($class) {
+    @include float-grid-columns($class);
+    @include loop-column-width($columns, $class);
+}
+
+// Creates extra-small columns
+@media (min-width: $screen-xs) {
+    @include make-grid(xs);
+}
+
+// Creates small columns
+@media (min-width: $screen-sm) {
+    @include make-grid(sm);
+}
+
+// Creates medium columns
+@media (min-width: $screen-md) {
+    @include make-grid(md);
+}
+
+// Creates large columns
+@media (min-width: $screen-lg) {
+    @include make-grid(lg);
+}
+
+
+/////////////////////
+//Standard columns - (not responsive)
+/////////////////////
+
+@mixin make-standard-column {
+    @for $i from 1 through $columns {
+        .col-#{$i} {
+            width: percentage($i / $columns);
+            float: left;
+        }
+    }
+}
+
+@include make-standard-column;

@@ -6,8 +6,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify') // Installation of uglify to minify the js files
     grunt.loadNpmTasks('grunt-contrib-watch') // Installation of watch to automate the tasks
 
-    var jsSrc = ['js/updateFileName.js', 'js/updateFileName.js', 'js/updateFileName.js'],
-        jsDist = 'js/main.js';
+    var jsSrc = 'js/main.js';
+        //jsDist = 'js/main.js';
 
     grunt.initConfig({
         sass: {
@@ -28,10 +28,10 @@ module.exports = function(grunt) {
             options: {
                 separator: ';',
             },
-            dist: {
-                src: jsSrc,
-                dest: jsDist
-            }
+//            dist: {
+  //              src: jsSrc,
+    //            dest: jsDist
+      //      }
         },
         uglify: {
             options: {

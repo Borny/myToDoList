@@ -1,24 +1,34 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Empty Project</title>
-    <script src="http://localhost:35729/livereload.js"></script>
-    <link rel="stylesheet" href="css/styles.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>To Do List</title>
+	<script src="http://localhost:35729/livereload.js"></script>
+	<link rel="stylesheet" href="css/styles.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet"> 
+
 </head>
 
 <body>
 
-<header></header>
+	<header>
+		<input type="text" placeholder="Enter an activity..." id="input_todo">
+		<button class="addItem" id="add">
+			<span></span>
+		</button>
+	</header>
 
-<main>
-    <h1>Empty Project</h1>
-</main>
+	<div class="container">
+		<ul class="todo" id="todo">
+		</ul>
 
-<footer></footer>
+		<ul class="completed" id="completed">
+		</ul>
+	</div>
 
-<script src="main.js"></script>
+	<script src="js/main.js"></script>
 
 </body>
 </html>

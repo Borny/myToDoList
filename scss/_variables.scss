@@ -1,0 +1,82 @@
+/////////////////////
+// Font
+/////////////////////
+@import url(//fonts.googleapis.com/css?family=Roboto:700,400,500,300);
+$font-family-roboto: 'Roboto', Arial, sans-serif, serif, Helvetica;
+
+/////////////////////
+// Colors
+/////////////////////
+$white: #fff;
+$black: #000;
+
+$white-opacity7: rgba(255, 255, 255, .7);
+$white-opacity5: rgba(255, 255, 255, .5);
+$white-opacity3: rgba(255, 255, 255, .3);
+$white-opacity2: rgba(255, 255, 255, .2);
+$white-opacity15: rgba(255, 255, 255, .15);
+$white-opacity0: rgba(255, 255, 255, 0);
+
+$black-opacity6: rgba(0, 0, 0, .6);
+$black-opacity5: rgba(0, 0, 0, .5);
+$black-opacity4: rgba(0, 0, 0, .4);
+$black-opacity3: rgba(0, 0, 0, .3);
+$black-opacity25: rgba(0, 0, 0, .25);
+$black-opacity2: rgba(0, 0, 0, .2);
+$black-opacity15: rgba(0, 0, 0, .15);
+
+$orange-light: #F9A33D;
+$orange: #F89827; //OFFICIAL COMPANEO ORANGE
+$orange-dark: #EA8A2A;
+
+$red: #FC5E71;
+
+$gray-light8: #F7F7F7;
+$gray-light7: #F2F2F2;
+$gray-light6: #E8E8E8;
+$gray-light5: #DDD;
+$gray-light4: #D6D6D6;
+$gray-light3: #AFAFAF;
+$gray-light2: #9E9E9E;
+$gray-light1: #787878;
+$gray: #444;
+$gray-lighter-two: #DDDDDD;
+
+$green-light3: #2EE8B7;
+$green-light2: #27E2B6;
+$green-light1: #26D3A5;
+$green: #0CC39D;
+
+$green-gradient: #92FE9D;
+
+$blue-green: #06b2c1;
+
+$blue-light4: #72E5F7;
+$blue-light3: #58DBF9;
+$blue-light2: #52CEE2;
+$blue-light1: #14BAED;
+$blue-light: #00B5FE;
+$blue: #00A3E4; //OFFICIAL COMPANEO BLUE
+$blue-dark1: #0194CE;
+$blue-dark2: #007FB1;
+$blue-dark3: #02649B;
+$blue-dark4: #05587C;
+
+/////////////////////
+// Screen sizes
+/////////////////////
+$screen-xs: 480px;
+$screen-sm: 768px;
+$screen-md: 992px;
+$screen-lg: 1200px;
+
+/////////////////////
+// Z-index
+/////////////////////
+$zindex-modal: 1000;
+$zindex-modal-dialog: 1100;
+
+/////////////////////
+// Columns
+/////////////////////
+$columns: 12 !default;
