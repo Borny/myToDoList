@@ -101,10 +101,6 @@ header{
 ul{
 	padding:0;
 	margin: 15px 0;
-	&.todo{
-		padding: 0 0 15px;
-		border-bottom: 1px solid $gray-light2;
-	}
 	&.completed{
 		.list_item{
 			.buttons_container{
@@ -116,6 +112,10 @@ ul{
 				}
 			}
 		}
+	}
+	&#completed:not(:empty){
+		padding: 0 0 15px;
+		border-top: 1px solid $gray-light2;
 	}
 	.list_item{
 		width: 100%;

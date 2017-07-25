@@ -7,6 +7,7 @@ add.addEventListener('click',function(){
 	if(inputValue){
 		addItemTodo(inputValue);
 		input.value = '';
+		input.focus();
 	} 
 
 });
@@ -21,14 +22,13 @@ function removeItem(){
 
 function moveCompletedItem(){
 	var item = this.parentNode.parentNode,
-		parent = item.parentNode;
+		parent = item.parentNode,
+		id = parent.id;
 
-	parent.removeChild(item); 
-
-	var completedList = document.getElementById('completed');
-	completedList.appendChild(item);
-
-
+		var target = (id === 'todo')? document.getElementById('completed'): document.getElementById('todo');
+			
+	parent.removeChild(item);
+	target.appendChild(item);
 
 }
 
