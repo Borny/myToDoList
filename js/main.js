@@ -1,85 +1,141 @@
-// Recovering the 
-var data = {
-	todo: [],
-	completed: []
+// Recovering the data
+var data = (localStorage.getItem('todoList')) ? JSON.parse(localStorage.getItem('todoList')) : {
+    todo: [],
+    completed: []
 };
 
-// Button to add task 
-var add = document.getElementById('add');
+renderTodoList();
 
 // Triggers event on button
-add.addEventListener('click',function(){
-	var input = document.getElementById('input_todo');
-	var inputValue = document.getElementById('input_todo').value;
+document.getElementById('add').addEventListener('click', function () {
+    var input = document.getElementById('input_todo'),
+        inputValue = (input) ? input.value : undefined;
 
-	if(inputValue){
-		addItemTodo(inputValue); // function to add item with the input value as title
-		input.value = ''; 	// empties the input
-		input.focus();    	// gets the focus on the button after clicking
+    if (input && inputValue) {
+        addItem(inputValue);
+    }
 
-		// adds the input value to the todo array
-		data.todo.push(inputValue);
-	} 
+    dataObjectUpDated();
 
 });
 
-// Remove item function by clicking on remove icon
-function removeItem(){
-	var item = this.parentNode.parentNode,
-		parent = item.parentNode;
+document.getElementById('input_todo').addEventListener('keydown', function (e) {
 
-	// removes item node
-	parent.removeChild(item);
+    var value = this.value;
+    if (e.code === 'Enter' && value) {
+
+        var input = document.getElementById('input_todo'),
+            inputValue = (input) ? input.value : undefined;
+
+        if (input && inputValue) {
+            addItem(inputValue);
+        }
+
+        dataObjectUpDated();
+    }
+});
+
+function addItem(inputValue){
+    addItemToDOM(inputValue); // function to add item with the input value as title
+    document.getElementById('input_todo').value = ''; 	// empties the input
+    document.getElementById('input_todo').focus();    	// gets the focus on the button after clicking
+
+    // adds the input value to the todo array
+    data.todo.push(inputValue);
+}
+
+// Dispalys the items stored in the Object locale storage
+function renderTodoList() {
+    if (!data.todo.length && !data.completed.length) return;
+
+    for (i = 0; i < data.todo.length; i++) {
+        var value = data.todo[i];
+        addItemToDOM(value);
+    }
+    for (j = 0; j < data.completed.length; j++) {
+        var value = data.completed[j];
+        addItemToDOM(value, true);
+    }
+}
+
+function dataObjectUpDated() {
+    localStorage.setItem('todoList', JSON.stringify(data));
+};
+
+// Remove item function by clicking on remove icon
+function removeItem() {
+    var item = this.parentNode.parentNode,
+        parent = item.parentNode,
+        id = parent.id,
+        value = item.innerText;
+
+    if (id === 'todo') {
+        data.todo.splice(data.todo.indexOf(value), 1);
+    } else {
+        data.completed.splice(data.completed.indexOf(value), 1);
+    }
+
+    // removes item node
+    parent.removeChild(item);
+
+    dataObjectUpDated();
 }
 
 // Moves the item by clicking on the completed task
-function moveCompletedItem(){
-	var item = this.parentNode.parentNode,
-		parent = item.parentNode,
-		id = parent.id,
-		value = item.innerText;
+function moveCompletedItem() {
+    var item = this.parentNode.parentNode,
+        parent = item.parentNode,
+        id = parent.id,
+        value = item.innerText;
 
-	data.todo.slice(data.todo.indexOf(value));
+    if (id === 'todo') {
+        data.todo.splice(data.todo.indexOf(value), 1);
+        data.completed.push(value);
+    } else {
+        data.completed.splice(data.completed.indexOf(value), 1);
+        data.todo.push(value);
+    }
 
-		// if : watches if the parent item is the todo most or completed list
-		// so that the target variable switches value
-	var target = (id === 'todo')? document.getElementById('completed'): document.getElementById('todo');
-			
-	parent.removeChild(item);
-	target.appendChild(item);
+    // if : watches if the parent item is the todo most or completed list
+    // so that the target variable switches value
+    var target = (id === 'todo') ? document.getElementById('completed') : document.getElementById('todo');
 
+    parent.removeChild(item);
+    target.appendChild(item);
+
+    dataObjectUpDated();
 }
 
 // Adds item to the todo list
-function addItemTodo(text){
+function addItemToDOM(text, completed) {
 
-	var list = document.getElementById('todo');
+    var list = (completed) ? document.getElementById('completed') : document.getElementById('todo');
 
-	var item = document.createElement('li');
-	item.classList.add('list_item');
+    var item = document.createElement('li');
+    item.classList.add('list_item');
 
-	var itemTextContent = document.createElement('span');
-	itemTextContent.classList.add('list_item-content');
-	itemTextContent.innerText = text;
+    var itemTextContent = document.createElement('span');
+    itemTextContent.classList.add('list_item-content');
+    itemTextContent.innerText = text;
 
-	var buttons = document.createElement('div');
-	buttons.classList.add('buttons_container');
+    var buttons = document.createElement('div');
+    buttons.classList.add('buttons_container');
 
-	var remove = document.createElement('button');
-	remove.classList.add('remove');
+    var remove = document.createElement('button');
+    remove.classList.add('remove');
 
-	remove.addEventListener('click', removeItem);
+    remove.addEventListener('click', removeItem);
 
-	var success = document.createElement('button');
-	success.classList.add('success');
+    var success = document.createElement('button');
+    success.classList.add('success');
 
-	success.addEventListener('click', moveCompletedItem);
+    success.addEventListener('click', moveCompletedItem);
 
-	list.prepend(item);
-	item.appendChild(itemTextContent);
-	item.appendChild(buttons);
-	buttons.appendChild(remove);
-	buttons.appendChild(success);
+    list.prepend(item);
+    item.appendChild(itemTextContent);
+    item.appendChild(buttons);
+    buttons.appendChild(remove);
+    buttons.appendChild(success);
 
 }
 

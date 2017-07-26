@@ -13,7 +13,6 @@ body{
 	width:100%;
 }
 
-
 body{
 	padding: 80px 0 0;
 	background: $gray-light5;
@@ -27,7 +26,7 @@ header{
 	top:0;
 	left:0;
 	z-index:5;
-	background: #25b99a;
+	background: $blue-light2;
 	box-shadow: 0 2px 4px rgba(44,62,80,.15);
 	border-bottom-right-radius: 10px; 
 	border-bottom-left-radius: 10px; 
