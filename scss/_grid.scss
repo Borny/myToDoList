@@ -9,6 +9,7 @@
 
 //container
 .container {
+    padding: 0 15px;    
     @include container-fixed;
     @media (min-width: $screen-sm) {
         width: $screen-sm;
@@ -98,5 +99,6 @@
         }
     }
 }
+
 
 @include make-standard-column;

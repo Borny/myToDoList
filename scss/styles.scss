@@ -1,100 +1,38 @@
 @import 'variables';
-@import 'placeholder';
+@import 'mixins';
 @import 'normalize';
+@import 'cssReset';
+@import 'placeholder';
 @import 'grid';
-
-*{
-	box-sizing: border-box;
-	font-family: 'Roboto', sans-serif;
-}
+@import 'modal-checkbox';
+@import 'modal-addItem';
 
 html,
 body{
 	width:100%;
+	font-family: $font-family-roboto;
 }
 
 body{
-	padding: 80px 0 0;
+	padding: 50px 0 0;
 	background: $gray-light5;
 }
 
 header{
 	width:100%;
-	height: 80px;
+	height: 50px;
 	position:fixed;
 	padding: 15px;
 	top:0;
 	left:0;
 	z-index:5;
-	background: $blue-light2;
+	background: $brown-light-uncharted;
 	box-shadow: 0 2px 4px rgba(44,62,80,.15);
-	border-bottom-right-radius: 10px; 
-	border-bottom-left-radius: 10px; 
-}
-
-header{
-	input{
-		width: 100%;
-		height: 50px;
-		float: left;
-		padding: 0 60px 0 0;
-		background: rgba(255,255,255,.2);
-		border-radius: 5px;
-		border-bottom-right-radius: 25px;
-		border-top-right-radius: 25px;
-		border:0;
-		box-shadow: none;
-		font-size:15px;
-		text-indent: 18px;
-		outline: none;
-		color: #fff;
+	p{
+		color: $brown-dark-uncharted;
+		text-align: center;
+		font-family: Base02 ;
 	}
-}
-
-.addItem{
-	width:50px;
-	height:50px;
-	position: absolute;
-	z-index:10;
-	top: 15px;
-	right: 15px;
-	border-radius: 50px;
-	outline:none;
-	box-shadow:none;
-	border:none;
-	cursor:pointer;
-	span{
-		position:absolute;
-		width: 100%;
-		height: 100%;
-		display: block;
-		background: #fff;
-		top:0;
-		left: 0;
-		border-radius: 100%;
-		&:before,
-		&:after{
-			content: '';
-			position: absolute;
-			background: $blue-light2;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%,-50%);
-			border-radius: 5px;
-		}
-		&:before{
-			width: 15px;
-			height: 3px;
-		}
-		&:after{
-			height: 15px;
-			width: 3px;
-		}
-	}
-}
-
-.container{
-	padding: 0 15px;
 }
 
 ul{
@@ -211,6 +149,52 @@ ul{
 					height: 5px;
 				}
 			}
+		}
+	}
+}
+
+//////////////////////////
+// OPEN CREATE ITEM MODAL
+//////////////////////////
+
+.open_createItem{
+	width:50px;
+	height:50px;
+	position: fixed;
+	z-index:10;
+	bottom: 15px;
+	right: 15px;
+	border-radius: 50px;
+	outline:none;
+	box-shadow:none;
+	border:none;
+	cursor:pointer;
+	span{
+		position:absolute;
+		width: 100%;
+		height: 100%;
+		display: block;
+		background: $white;
+		top:0;
+		left: 0;
+		border-radius: 100%;
+		&:before,
+		&:after{
+			content: '';
+			position: absolute;
+			background: $blue-light2;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			border-radius: 5px;
+		}
+		&:before{
+			width: 15px;
+			height: 3px;
+		}
+		&:after{
+			height: 15px;
+			width: 3px;
 		}
 	}
 }

@@ -1,14 +1,28 @@
-/////////////////////
-// Font
-/////////////////////
-//@import url(//fonts.googleapis.com/css?family=Roboto:700,400,500,300);
-//$font-family-roboto: 'Roboto', Arial, sans-serif, serif, Helvetica;
+//////////
+// FONTS
+//////////
 
-/////////////////////
-// Colors
-/////////////////////
+// Roboto
+@import url(//fonts.googleapis.com/css?family=Roboto:700,400,500,300);
+$font-family-roboto: 'Roboto', Arial, sans-serif, serif, Helvetica;
+
+// Base 02
+
+@font-face {
+    font-family: 'Base02';
+    src: url('../fonts/Base02.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+///////////
+// COLORS
+///////////
 $white: #fff;
 $black: #000;
+
+$brown-light-uncharted: #E09045;
+$brown-dark-uncharted: #340E01;
 
 $white-opacity7: rgba(255, 255, 255, .7);
 $white-opacity5: rgba(255, 255, 255, .5);
@@ -73,8 +87,10 @@ $screen-lg: 1200px;
 /////////////////////
 // Z-index
 /////////////////////
-$zindex-modal: 1000;
-$zindex-modal-dialog: 1100;
+
+$zindex-modal-btnOpen: 100;
+$zindex-modal: 150;
+$zindex-modal-dialog: 200;
 
 /////////////////////
 // Columns

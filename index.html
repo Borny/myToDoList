@@ -7,23 +7,48 @@
 	<script src="http://localhost:35729/livereload.js"></script>
 	<link rel="stylesheet" href="css/styles.css">
 
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
-
 </head>
 
 <body>
 
 	<header>
-		<input type="text" placeholder="Enter an activity..." id="input_todo">
-		<button class="addItem" id="add">
-			<span></span>
-		</button>
+		<p>My Awesome To Do List</p>
 	</header>
 
 	<div class="container">
 		<ul class="todo" id="todo"></ul>
 
 		<ul class="completed" id="completed"></ul>
+	</div>
+
+	<label for="toggle-modal" class="btn_modal-open open_createItem">
+		<span></span>
+	</label>
+
+	<!--Modal Create new item-->
+	<div class="modalCheckbox" aria-hidden="true">
+		<input id="toggle-modal" type="checkbox" class="modal-input">
+		<label for="toggle-modal" class="modal-overlay"></label>
+		<div class="modal-dialog">
+			<div class="modal-header">
+				<h2>Enter a task</h2>
+				<input class="input_addItem" type="text" placeholder="Enter an activity..." id="input_todo">
+			</div>
+			<div class="modal-body">
+			</div>
+			<div class="modal-footer row">
+				<div class="col-6 btn_container">
+					<label for="toggle-modal" class="btn-modal_close">
+						Cancel
+					</label>
+				</div>
+				<div class="col-6 btn_container">
+					<label for="toggle-modal" class="btn-modal_close addItem-btn" id="add">
+						Create
+					</label>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<script src="js/main.js"></script>
