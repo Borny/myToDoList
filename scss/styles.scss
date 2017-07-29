@@ -5,24 +5,27 @@
 @import 'placeholder';
 @import 'grid';
 @import 'modal-checkbox';
-@import 'modal-addItem';
 
 html,
 body{
 	width:100%;
+	min-height: 100%;
 	font-family: $font-family-roboto;
+	font-size: 1em;
 }
 
 body{
-	padding: 50px 0 0;
+	padding: 3.5em 0 0;
 	background: $gray-light5;
+	// background : url('../img/uc2.jpg') 100% no-repeat;
 }
 
+// Header
 header{
 	width:100%;
-	height: 50px;
+	height: 3.5em;
 	position:fixed;
-	padding: 15px;
+	padding: 1em;
 	top:0;
 	left:0;
 	z-index:5;
@@ -32,169 +35,5 @@ header{
 		color: $brown-dark-uncharted;
 		text-align: center;
 		font-family: Base02 ;
-	}
-}
-
-ul{
-	padding:0;
-	margin: 15px 0;
-	position: relative;
-	&:after{
-		display: block;
-		width: 100%;
-		text-align: center;
-		font-size:12px;
-		color: $gray-light2;
-	}
-	&.todo{
-		&:empty{
-			&:after{
-				content: 'You have nothing to do';
-			}
-		}
-	}
-	&.completed{
-		padding: 15px 0 0;
-		&:before{
-			content: '';
-			position: absolute;
-			width: 150px;
-			height: 1px;
-			background:$gray-light2;
-			top: 0;
-			left: 50%;
-			transform: translateX(-50%);
-		}
-		&:empty{
-			&:after{
-				content: 'You need to complete a task';
-			}
-		}
-		.list_item{
-			.buttons_container{
-				.success{
-					background: $blue-light2;
-					&:before{
-						border-color: $white;
-					}
-				}
-			}
-		}
-	}
-	.list_item{
-		width: 100%;
-		padding: 15px;
-		margin: 0 0 15px;
-		background: $white;
-		border-radius:5px;
-		list-style-type: none;
-		box-shadow: 0 4px 5px rgba(0,0,0,.2);
-		.list_item-content{
-			width: 60%;
-			display: inline-block;
-			vertical-align: middle;
-		}
-		.buttons_container{
-			display: inline-block;
-			vertical-align: middle;
-			.remove,
-			.success{
-				border-radius: 100%;
-				padding:15px;				
-				display: inline-block;
-				vertical-align: top;
-				margin: 0 0 0 10px;
-				background:$white;
-				outline:none;
-				box-shadow:none;
-				border:none;
-				cursor:pointer;
-			}
-			.remove{
-				border:1px solid $red;
-				position:relative;
-				transform:rotate(45deg);
-				&:before,
-				&:after{
-					content: '';
-					position:absolute;
-					top: 50%;
-					left: 50%;
-					transform: translate(-50%,-50%);
-					background: $red;
-				}
-				&:before{
-					width: 15px;
-					height: 3px;
-				}
-				&:after{
-					height: 15px;
-					width: 3px;
-				}
-
-			}
-			.success{
-				border:1px solid $blue-light2;
-				position:relative;
-				&:before{
-					content: '';
-					position:absolute;
-					top: 10px;
-					left: 10px;
-					transform: rotate(-45deg);				
-					border-width: 0 0 1px 1px;
-					border-color: $blue-light2;
-					border-style: solid;
-					width: 10px;
-					height: 5px;
-				}
-			}
-		}
-	}
-}
-
-//////////////////////////
-// OPEN CREATE ITEM MODAL
-//////////////////////////
-
-.open_createItem{
-	width:50px;
-	height:50px;
-	position: fixed;
-	z-index:10;
-	bottom: 15px;
-	right: 15px;
-	border-radius: 50px;
-	outline:none;
-	box-shadow:none;
-	border:none;
-	cursor:pointer;
-	span{
-		position:absolute;
-		width: 100%;
-		height: 100%;
-		display: block;
-		background: $white;
-		top:0;
-		left: 0;
-		border-radius: 100%;
-		&:before,
-		&:after{
-			content: '';
-			position: absolute;
-			background: $blue-light2;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%,-50%);
-			border-radius: 5px;
-		}
-		&:before{
-			width: 15px;
-			height: 3px;
-		}
-		&:after{
-			height: 15px;
-			width: 3px;
-		}
 	}
 }

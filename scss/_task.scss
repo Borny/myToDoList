@@ -1,0 +1,135 @@
+//////////////
+// TASK LIST
+//////////////
+ul{
+	padding:0;
+	margin: 1em 0;
+	position: relative;
+	
+	// Lists texts block
+	&:after{
+		display: block;
+		width: 100%;
+		text-align: center;
+		font-size: .7em;
+		color: $gray-light2;
+	}
+
+	// ToDo list actual text when the list is empty
+	&.todo{
+		&:empty{
+			&:after{
+				content: 'You have nothing to do';
+			}
+		}
+	}
+
+	&.completed{
+		padding: 1em 0 0;
+
+		// Separator line between ToDo and Completed lists
+		&:before{
+			content: '';
+			position: absolute;
+			width: 10em;
+			height: .05em;
+			background:$gray-light2;
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+		&:empty{
+			&:after{
+				content: 'You need to complete a task';
+			}
+		}
+
+		// Special color for the success button on completed list
+		.list_item{
+			.buttons_container{
+				.success{
+					background: $blue-light2;
+					&:before{
+						border-color: $white;
+					}
+				}
+			}
+		}
+	}
+
+	// List item block
+	.list_item{
+		width: 100%;
+		padding: 1em;
+		margin: 0 0 1em;
+		background: $white;
+		border-radius: .3em;
+		list-style-type: none;
+		box-shadow: 0 4px 5px rgba(0,0,0,.2);
+		.list_item-content{
+			width: 60%;
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.buttons_container{
+			display: inline-block;
+			vertical-align: middle;
+			.remove,
+			.success{
+				border-radius: 100%;
+				padding:1em;				
+				display: inline-block;
+				vertical-align: top;
+				margin: 0 0 0 .7em;
+				background:$white;
+				outline:none;
+				box-shadow:none;
+				border:none;
+				cursor:pointer;
+			}
+
+			// Delete task button
+			.remove{
+				border:1px solid $red;
+				position:relative;
+				transform:rotate(45deg);
+				&:before,
+				&:after{
+					content: '';
+					position:absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%,-50%);
+					background: $red;
+				}
+				&:before{
+					width: 15px;
+					height: 3px;
+				}
+				&:after{
+					height: 15px;
+					width: 3px;
+				}
+
+			}
+
+			// Success task button
+			.success{
+				border:1px solid $blue-light2;
+				position:relative;
+				&:before{
+					content: '';
+					position:absolute;
+					top: 10px;
+					left: 10px;
+					transform: rotate(-45deg);				
+					border-width: 0 0 3px 3px;
+					border-color: $blue-light2;
+					border-style: solid;
+					width: 10px;
+					height: 5px;
+				}
+			}
+		}
+	}
+}
