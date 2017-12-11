@@ -1,15 +1,22 @@
+// Tools
 @import 'variables';
 @import 'mixins';
-@import 'normalize';
-@import 'cssReset';
-@import 'placeholder';
 @import 'grid';
+
+// Base
+@import 'base';
+@import 'normalize';
+
+// Modules
 @import 'modal-checkbox';
+@import 'placeholder';
+
+// Components
 
 html,
 body{
+	height: 100%;
 	width:100%;
-	min-height: 100%;
 	font-family: $font-family-roboto;
 	font-size: 1em;
 }

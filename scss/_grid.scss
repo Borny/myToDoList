@@ -9,7 +9,9 @@
 
 //container
 .container {
+    position: relative;
     padding: 0 15px;    
+    height: calc( 100% - 3.5em);
     @include container-fixed;
     @media (min-width: $screen-sm) {
         width: $screen-sm;
