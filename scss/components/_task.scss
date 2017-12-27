@@ -120,14 +120,14 @@ ul{
 				&:before{
 					content: '';
 					position:absolute;
-					top: 10px;
-					left: 10px;
+					top: 9px;
+					left: 9px;
 					transform: rotate(-45deg);				
 					border-width: 0 0 3px 3px;
 					border-color: $blue-light2;
 					border-style: solid;
-					width: 10px;
-					height: 5px;
+					width: 15px;
+					height: 9px;
 				}
 			}
 		}
