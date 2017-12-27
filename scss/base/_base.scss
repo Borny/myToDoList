@@ -1,7 +1,24 @@
 // Base rules file
-
 * {
     box-sizing: border-box;
+}
+
+* {
+    &:after,
+    &:before {
+        @extend *;
+    }
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    font-size: 1em;
+    position: relative;
+    padding: 3.5em 0 0;
+    font-family: $font-family-roboto;
 }
 
 a{
